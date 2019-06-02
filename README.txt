@@ -1,4 +1,8 @@
-TELETIENDA: ¿harto de pasar tiempo en el ordenador sin un reto?, en este juego tu eres una nave (el cuadrado azul)
+Para Ejecutar: requiere tener procesing 3, se descarga la carpeta y se le cambia el nombre a bullethell (si no da error)
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+TELETIENDA: Â¿harto de pasar tiempo en el ordenador sin un reto?, en este juego tu eres una nave (el cuadrado azul)
 y tu labor es sobrevivir lo mas posible ante ordas de enemigos que no dudaran en matarte de un golpe.
 
 ----------------------------------------------------------------------------------------------------------------------------------
@@ -17,7 +21,7 @@ basicos para todos los objetos del juego, desde el fondo de estrellas hasta los 
 un array de objetos llamado "engine". El Array es de objetos tipo GameObject y cotinene todos los objetos del juego.
 
 En el void draw hicimos un bucle while para mostrar los objetos del array y comprobar si han muerto y removerlos, tambien en el
-draw añadimos las estrellas (son solo para el fondo ya que no tienen colision).
+draw aÃ±adimos las estrellas (son solo para el fondo ya que no tienen colision).
 
 La interaccion con el teclado la hemos hecho a base de variables boolean para usar el metodo keyPressed y no tener que pulsar 
 varias veces, esto deja un movimiento mas fluido necesario para este tipo de juegos. Al soltar la tecla se desactiva la variable y
@@ -56,7 +60,7 @@ las primeras bajan y son de color rojo.
 
 Clase Ship y objeto MyShip:
 la clase ship contiene la vida de la nave del jugador asi como la interaccion con el teclado y los condicionales if para que no se
-pueda salir de la pantalla, el objeto My.Ship es un objeto de tipo Ship añadido al Array llamado engine y que con un solo impacto
+pueda salir de la pantalla, el objeto My.Ship es un objeto de tipo Ship aÃ±adido al Array llamado engine y que con un solo impacto
 muere. Tambien la clase Ship tiene el metodo CheckCollision donde se revisa si hay colisiones entre balas enemigas y enemigos
 para bajar la vida de la nave (al tener solo 1 de vida es muerte instantanea).
 
