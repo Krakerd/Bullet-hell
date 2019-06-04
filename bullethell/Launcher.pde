@@ -1,4 +1,7 @@
 class Launcher extends GameObject{
+  
+  float angle;
+  
   Launcher(){
     x = width/2;
     y=-100;
