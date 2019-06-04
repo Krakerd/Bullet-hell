@@ -17,6 +17,8 @@ class Ship extends GameObject {
   void show() {
     fill(8, 191, 255);
     rect(x, y, w, h);
+    //sprite = loadImage("Nave_jugador.jpg");
+    //image(sprite,x-25,y-25);
   }
 
   void act() {
