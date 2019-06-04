@@ -16,6 +16,9 @@ class Enemy extends GameObject {
   void show() {
     fill(orange);
     rect(x, y, w, h);
+    
+    //sprite = loadImage("nave_Lenta.jpg");
+    //image(sprite,x-25,y-25);
   }
 
   void act() {
