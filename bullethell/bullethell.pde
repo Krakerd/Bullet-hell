@@ -5,11 +5,16 @@ color lightblue = #67D4FF;
 color darkblue = #2F6A96;
 color orange = #EE7036;
 color darkOrange = #AA5012;
+
 ArrayList<GameObject> engine;
+
 boolean wkey, skey, akey, dkey, spacekey;
+
 Ship MyShip;
+
 Minim m;
 AudioPlayer mfondo;
+
 float puntuacion;
 
 void setup() {
@@ -23,7 +28,6 @@ void setup() {
   //cambiar modo rectangulo
   rectMode(CENTER);
   noStroke();
-
   //añadir nave
   MyShip = new Ship();
   engine.add(MyShip);
@@ -33,7 +37,7 @@ void setup() {
 
   //cargar sonidos
   m = new Minim(this);
-  mfondo = m.loadFile("Megalovania.mp3", 1024);
+  mfondo = m.loadFile(".mp3", 1024);
   mfondo.loop();
 }
 
@@ -65,8 +69,18 @@ void draw() {
   engine.add(new Star());
 
   //puntuacion
-  puntuacion = frameCount-300;
-  if (frameCount >= 300 && MyShip.hp > 0) text("Puntos: " + puntuacion, 20, 20);
+  if (MyShip.hp > 0) {
+    puntuacion = (frameCount/60)-5;
+  }
+  if (frameCount >= 300 && MyShip.hp > 0) {
+    textSize(12);
+    text("Puntos: " + puntuacion, 20, 20);
+  }
+  if (MyShip.hp <= 0) {
+    textSize(30);
+    textAlign(CENTER, CENTER);
+    text("Tu puntuación fue: " + puntuacion, height/2, width/2);
+  }
 }
 
 //interaccion con el teclado
