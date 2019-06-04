@@ -13,6 +13,8 @@ class ShotingEnemy extends Enemy {
   void show() {
     fill(255,0,0);
     rect(x, y, w, h);
+    //sprite = loadImage("nave_grande.jpg");
+    //image(sprite,x-50,y-50);
   }//cierre del show
 
   void act() {
