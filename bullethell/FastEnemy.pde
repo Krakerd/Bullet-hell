@@ -10,5 +10,7 @@ class FastEnemy extends Enemy {
   void show() {
     fill(darkOrange);
     rect(x, y, w, h);
+    //sprite = loadImage("nave_rapida.jpg");
+    //image(sprite,x-25,y-25);
   }
 }
