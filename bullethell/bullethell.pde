@@ -76,6 +76,10 @@ void draw() {
     textSize(12);
     text("Puntos: " + puntuacion, 20, 20);
   }
+  if (frameCount <= 300 && MyShip.hp > 0) {
+    textSize(28);
+    text("Solo tienes una oportunidad", 100, 100);
+  }
   if (MyShip.hp <= 0) {
     textSize(30);
     textAlign(CENTER, CENTER);
