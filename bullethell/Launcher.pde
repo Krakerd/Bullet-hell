@@ -28,7 +28,7 @@ class Launcher extends GameObject {
       randomWave();
     }
     if (frameCount >= 1500 && frameCount < 2000) {
-      randomWave2();
+      senwave();
     }
     if (frameCount >= 2000 && frameCount < 2500) {
       randomWave();
@@ -44,7 +44,7 @@ class Launcher extends GameObject {
   void straightLine(float incomingX) {
     x = incomingX;
     if (frameCount % 100 == 0) {
-      engine.add(new Enemy(x, y));
+      engine.add(new SenEnemy(x, y));
     }
   }
   void randomWave () {
@@ -74,7 +74,7 @@ class Launcher extends GameObject {
   void senwave () {
     angle = angle + PI/90;
     x = sin(angle)*width/2 + width/2;
-    if (frameCount % 15 == 0) {
+    if (frameCount % 5 == 0) {
       engine.add(new FastEnemy(x, y));
     }
   }
