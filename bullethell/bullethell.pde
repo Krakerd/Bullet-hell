@@ -5,6 +5,7 @@ color lightblue = #67D4FF;
 color darkblue = #2F6A96;
 color orange = #EE7036;
 color darkOrange = #AA5012;
+color skin = #FCC166;
 
 ArrayList<GameObject> engine;
 
