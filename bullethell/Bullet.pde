@@ -30,6 +30,6 @@ class Bullet extends GameObject {
   }
 
   boolean muerto() {
-    return y<0 || hp<=0;
+    return y<0 || hp<=0 || y>height;
   }
 }
