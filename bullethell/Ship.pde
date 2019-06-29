@@ -11,7 +11,7 @@ class Ship extends GameObject {
     hp = 1;
     w = 50;
     h = 50;
-    myGun = new MachineGun();
+    myGun = new deathblossom();
   }
 
   void show() {
