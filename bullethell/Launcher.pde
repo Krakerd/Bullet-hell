@@ -35,16 +35,25 @@ class Launcher extends GameObject {
       randomWave3();
     }
     if (frameCount >= 2500 && frameCount < 3000) senwave();
-    if (frameCount >=3000) {
+    if (frameCount >= 3000 && frameCount < 4000) {
       randomWave();
       randomWave3();
+    }
+    if(frameCount >= 4000 && frameCount < 4301){
+      danmaku1();
+    }
+    if (frameCount%3900 == 0) {
+      BlossomUp();
+      HPUp();
+      Vup();
+      Mup();
     }
   }
 
   void straightLine(float incomingX) {
     x = incomingX;
     if (frameCount % 100 == 0) {
-      engine.add(new SenEnemy(x, y));
+      engine.add(new Enemy(x, y));
     }
   }
   void randomWave () {
@@ -76,6 +85,30 @@ class Launcher extends GameObject {
     x = sin(angle)*width/2 + width/2;
     if (frameCount % 5 == 0) {
       engine.add(new FastEnemy(x, y));
+    }
+  }
+  void BlossomUp () {
+    engine.add(new DeathUp());
+  }
+  void HPUp () {
+    engine.add(new HpUp());
+  }
+  void Vup () {
+    engine.add(new VgunUp());
+  }
+  void Mup () {
+    engine.add(new MachineUp());
+  }
+  
+  void danmaku1(){
+    for(int i =0; i<= 3; i++){
+      if(frameCount%100 == 0){
+        engine.add(new ShotingEnemy2(0,random(100,300),3));
+        engine.add(new ShotingEnemy2(width,random(100,300),-3));
+      }
+    }
+    if(frameCount%50 == 0){
+      randomWave();
     }
   }
   boolean muerto() {
