@@ -5,18 +5,15 @@ class ShotingEnemy extends Enemy {
     vy=2;
     w=100;
     h=100;
-    if(frameCount >= 5200){
-     hp = 250;
+    if (frameCount >= 5200) {
+      hp = 250;
     }
   }//cierre del constructor
 
   void show() {
-    fill(255,0,0);
+    fill(255, 0, 0);
     rect(x, y, w, h);
-    //sprite = loadImage("nave_grande.jpg");
-    //image(sprite,x-50,y-50);
   }//cierre del show
-
   void act() {
     if (y <= height/2) {
       x =x + vx;
@@ -26,25 +23,38 @@ class ShotingEnemy extends Enemy {
 
     if (y >= height/2) {
       if (frameCount % 100 == 0) {
-        engine.add(new EnemyBullet(x,y));
-      }//cierre del segundo if
-    }//cierre del if
-  }//cierre del act
-  
-  void checkCollision() {
-    int i = 0;
-    while (i < engine.size()) {
-      GameObject thing = engine.get(i);
-      if (thing instanceof Bullet) {
-        if (rectRect(x, y, 100, 100, thing.x, thing.y, 10, 10)) {
-          hp = hp - 1;
-          thing.hp = 0;
-          for (int j = 0; j < 5; j++) {
-            engine.add(new Particle(thing.x, thing.y));
-          }
-        }
+        engine.add(new EnemyBullet(x, y));
       }
-      i++;
     }
-  }//cierre de colision
-}//cierre de clase
+  }
+}
+
+class ShotingEnemy2 extends Enemy {
+  ShotingEnemy2(float incomingX, float incomingY, float incomingVx) {
+    super(incomingX, incomingY);
+    hp=20;
+    w=75;
+    h=75;
+    vx=incomingVx;
+    vy=0;
+  }
+  void show() {
+    fill(129, 129, 129);
+    rect(x, y, w, h);
+  }
+  void act() {
+    checkCollision();
+    float nbullets, angle;
+    nbullets = 36;
+    if ( x<=300 || x>=width-300) {
+      x=x+vx;
+      y=y+vy;
+    }
+    if (frameCount%100==0) {
+      for (int i = 0; i<=nbullets; i++) {
+        angle = (TWO_PI/nbullets)*(i);
+        engine.add(new EnemyBullet(x,y,sin(angle)*3, cos(angle)*3));
+      }
+    }
+  }
+}
