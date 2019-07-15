@@ -9,16 +9,21 @@ class Ship extends GameObject {
     vx = 0;
     vy = 0;
     hp = 1;
-    w = 50;
-    h = 50;
+    w = 10;
+    h = 10;
     myGun = new deathblossom();
+    
   }
 
   void show() {
-    fill(8, 191, 255);
-    rect(x, y, w, h);
-    //sprite = loadImage("Nave_jugador.jpg");
-    //image(sprite,x-25,y-25);
+    fill(darkblue);
+    myGun.displayArc();
+    pushMatrix();
+    translate(x,y);
+    rotate(3*PI/2);
+    sprite = loadImage("Nave_jugador2.jpg");
+    image(sprite,0,0);
+    popMatrix();
   }
 
   void act() {
@@ -45,7 +50,7 @@ class Ship extends GameObject {
     while (i < engine.size()) {
       GameObject thing = engine.get(i);
       if (thing instanceof Enemy) {
-        if (rectRect(x, y, 50, 50, thing.x, thing.y, 50, 50)) {
+        if (rectRect(x, y, w, h, thing.x, thing.y, 50, 50)) {
           hp = hp - 1;
           thing.hp = 0;
           for (int j = 0; j < 5; j++) {
@@ -54,7 +59,7 @@ class Ship extends GameObject {
         }
       }
       if (thing instanceof EnemyBullet) {
-        if (rectRect(x, y, 5, 5, thing.x, thing.y, 50, 50)) {
+        if (rectRect(x, y, w, h, thing.x, thing.y, thing.w, thing.h)) {
           hp = hp - 1;
           thing.hp = 0;
           for (int j = 0; j < 5; j++) {
@@ -63,7 +68,7 @@ class Ship extends GameObject {
         }
       }
       if (thing instanceof ShotingEnemy) {
-        if (rectRect(x, y, 100, 100, thing.x, thing.y, 50, 50)) {
+        if (rectRect(x, y, w, h, thing.x, thing.y, 100, 100)) {
           hp = hp - 1;
           thing.hp = 0;
           for (int j = 0; j < 5; j++) {
