@@ -5,6 +5,7 @@ class Boss extends GameObject {
     x= random(75, width-75);
     y=0;
     vx=0;
+    vy=3;
     hp=150;
   }
 
@@ -14,6 +15,10 @@ class Boss extends GameObject {
   }
 
   void act() {
+   if(y >= height/2){
+      y = y + vy;
+    }
+    checkCollision();
   }
    void checkCollision() {
     int i = 0;
