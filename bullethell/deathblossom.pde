@@ -1,11 +1,11 @@
 class deathblossom extends Gun {
   deathblossom() {
-    thershold = 15;
+    threshold = 15;
     cooldown = 0;
   }
 
   void Shoot () {
-    if (cooldown == thershold) {
+    if (cooldown == threshold) {
       nbullets = 36;
       cooldown=0;
       for (int i = 0; i<=nbullets; i++) {
